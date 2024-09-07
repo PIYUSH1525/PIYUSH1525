@@ -1,4 +1,4 @@
-![MasterHead](https://drive.google.com/file/d/1fxXNxF8xvrRoevCD1DUU__4gi8qz5tg6/view?usp=sharing)
+![MasterHead](https://drive.google.com/drive/u/0/my-drive)
 <h1 align="center">Hi 👋, I'm PIYUSH NEGI</h1>
 <h3 align="center">A passionate developer👨‍💻 and editor from India & working remotely since 2021 🚀</h3>
 <img align="right" alt="coding" width"400" src="https://media.tenor.com/qJ5evVs-_uUAAAAC/coding.gif">
