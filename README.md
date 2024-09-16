@@ -32,16 +32,4 @@
 
 ---
 [![](https://visitcount.itsvg.in/api?id=PIYUSH1525&icon=0&color=0)](https://visitcount.itsvg.in)
-<!--START_SECTION:waka-->
 
-```all_time
-From: 01 September 2024 - To: 08 September 2024
-
-Total Time: 13 hrs 58 mins
-
-TypeScript   12 hrs 51 mins  >>>>>>>>>>>>>>>>>>>>>>>--   90.49 %
-JSON         41 mins         >------------------------   04.88 %
-Other        13 mins         -------------------------   01.64 %
-```
-
-<!--END_SECTION:waka-->
