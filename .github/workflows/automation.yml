@@ -1,48 +1,43 @@
-name: Automation
+name: Update README
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # Runs every 30 minutes
-  workflow_dispatch:        # Allows manual triggering of the workflow
+    - cron: "0 * * * *"
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  modify-readme:
+  update-readme:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - name: Set up Git
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
 
-    - name: Check if README contains temporary text
-      id: check_text
+    - name: Install Dependencies
       run: |
-        if grep -q "This is temporary text." README.md; then
-          echo "contains_text=true" >> $GITHUB_ENV
-        else
-          echo "contains_text=false" >> $GITHUB_ENV
-        fi
+        gem install octokit dotenv
 
-    - name: Add or Remove Text from README
+    - name: Run Update Script
       run: |
-        if [ "${{ env.contains_text }}" = "true" ]; then
-          # Remove the text if it exists
-          sed -i '/This is temporary text./d' README.md
-          echo "commit_message=Removed temporary text" >> $GITHUB_ENV
-        else
-          # Add the text if it doesn't exist
-          echo "This is temporary text." >> README.md
-          echo "commit_message=Added temporary text" >> $GITHUB_ENV
-        fi
+        ruby scripts/update_readme.rb
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        USERNAME: ${{ secrets.USERNAME }}
 
     - name: Commit and Push changes
-      run: |
-        git add README.md
-        git commit -m "${{ env.commit_message }}"
-        git push
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Update README with recent activity"
+        commit_user_name: "github-actions[bot]"
+        commit_user_email: "github-actions[bot]@users.noreply.github.com"
+        branch: main
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
