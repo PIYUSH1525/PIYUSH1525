@@ -13,6 +13,9 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
+    - name: Debug README Content
+      run: cat README.md
+
     - name: Check if README contains temporary text
       id: check_text
       run: |
@@ -20,9 +23,11 @@ jobs:
           echo "contains_text=true" >> $GITHUB_ENV
         else
           echo "contains_text=false" >> $GITHUB_ENV
-          
+        fi
+
     - name: Add or Remove Text from README
       run: |
+        echo "Current state: ${{ env.contains_text }}"
         if [ "${{ env.contains_text }}" = "true" ]; then
           # Remove the text if it exists
           sed -i '/This is temporary text./d' README.md
@@ -32,6 +37,9 @@ jobs:
           echo "This is temporary text." >> README.md
           echo "commit_message=Added temporary text" >> $GITHUB_ENV
         fi
+
+    - name: Debug README Content After Modification
+      run: cat README.md
 
     - name: Commit and Push changes
       uses: stefanzweifel/git-auto-commit-action@v5
