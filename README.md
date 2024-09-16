@@ -32,4 +32,5 @@
 
 ---
 [![](https://visitcount.itsvg.in/api?id=PIYUSH1525&icon=0&color=0)](https://visitcount.itsvg.in)
-
+# 🔧 Automation Workflow
+![Automation](https://github.com/PIYUSH1525/PIYUSH1525/actions/workflows/automation.yml/badge.svg)
