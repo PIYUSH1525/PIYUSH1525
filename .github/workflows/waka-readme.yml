@@ -15,7 +15,7 @@ jobs:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           # meta
           API_BASE_URL: https://wakatime.com/api
-          REPOSITORY: CFCIFE/CFCIFE
+          REPOSITORY: PIYUSH1525/PIYUSH1525
           # content
           SHOW_TITLE: true
           SECTION_NAME: waka
@@ -28,13 +28,13 @@ jobs:
           SHOW_MASKED_TIME: false
           STOP_AT_OTHER: true
           # commit
-          COMMIT_MESSAGE: Updated waka-readme graph with new metrics
+          COMMIT_MESSAGE: Updated Piyush-readme graph with new metrics
           TARGET_BRANCH: main
           TARGET_PATH: README.md
           COMMITTER_NAME: GitHubActionBot
           COMMITTER_EMAIL: action-bot@github.org
-          AUTHOR_NAME: CFCIFE
-          AUTHOR_EMAIL: aboludepeter@gmail.com
+          AUTHOR_NAME: PIYUSH1525
+          AUTHOR_EMAIL: negipiyush125@gmail.com
           # following flags are required, only if this is not on
           # profile readme, remove the leading `#` to use them
           #GH_TOKEN: ${{ secrets.GH_TOKEN }}
