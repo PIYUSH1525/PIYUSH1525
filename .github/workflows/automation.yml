@@ -26,17 +26,19 @@ jobs:
         if [ "${{ env.contains_text }}" = "true" ]; then
           # Remove the text if it exists
           sed -i '/This is temporary text./d' README.md
+          echo "commit_message=Removed temporary text" >> $GITHUB_ENV
         else
           # Add the text if it doesn't exist
           echo "This is temporary text." >> README.md
+          echo "commit_message=Added temporary text" >> $GITHUB_ENV
         fi
 
     - name: Commit and Push changes
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        commit_message: |
-          ${{ env.contains_text == 'true' && echo 'Removed temporary text' || echo 'Added temporary text' }} to README
+        commit_message: ${{ env.commit_message }}
         commit_user_name: "github-actions[bot]"
         commit_user_email: "github-actions[bot]@users.noreply.github.com"
+        branch: main
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
