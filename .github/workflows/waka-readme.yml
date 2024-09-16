@@ -1,0 +1,41 @@
+name: Waka Readme
+
+on:
+  workflow_dispatch: # for manual workflow trigger
+  schedule:
+    - cron: "0 * * * *"  # every hour
+
+jobs:
+  update-readme:
+    name: WakaReadme DevMetrics
+    runs-on: ubuntu-latest
+    steps:
+      - uses: athul/waka-readme@v0.2.5
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          # meta
+          API_BASE_URL: https://wakatime.com/api
+          REPOSITORY: CFCIFE/CFCIFE
+          # content
+          SHOW_TITLE: true
+          SECTION_NAME: waka
+          BLOCKS: ->
+          CODE_LANG: all_time 
+          TIME_RANGE: true
+          LANG_COUNT: 10
+          SHOW_TIME: true
+          SHOW_TOTAL: true
+          SHOW_MASKED_TIME: false
+          STOP_AT_OTHER: true
+          # commit
+          COMMIT_MESSAGE: Updated waka-readme graph with new metrics
+          TARGET_BRANCH: main
+          TARGET_PATH: README.md
+          COMMITTER_NAME: GitHubActionBot
+          COMMITTER_EMAIL: action-bot@github.org
+          AUTHOR_NAME: CFCIFE
+          AUTHOR_EMAIL: aboludepeter@gmail.com
+          # following flags are required, only if this is not on
+          # profile readme, remove the leading `#` to use them
+          #GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          #REPOSITORY: <gh_username/gh_username>
