@@ -12,7 +12,7 @@
 - 🔭 I’m currently working Frontend   
   
 
-- 🌱 I’m currently learning HTML5 & CSS  
+- 🌱 I’m currently learning Backend Developement  
   
 
 - ❓ Ask me about anything related to Frontend , editing and related technologies  
