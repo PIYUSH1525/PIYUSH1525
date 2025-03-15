@@ -10,7 +10,7 @@
   
 
 # 💫 About Me:
-🔭 I’m currently working Frontend<br><br>🌱 I’m currently learning Backend Developement<br><br>❓ Ask me about anything related to Frontend , editing and related technologies<br><br>⚡ Fun fact: I Am An Engineer<br><br>
+• 🔭 I’m currently working on Full Stack Developement <br><br>• 🌱 I’m currently learning Backend Developement<br><br>•❓ Ask me about anything related to Frontend , editing and related technologies<br><br>•⚡ Fun fact: I Am An Engineer<br><br>
 
 
 # 💻 Tech Stack:
